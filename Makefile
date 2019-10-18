@@ -28,6 +28,9 @@ pthread_per_thread:
 fft_single:
 	nvcc $(SRC)/fft_single.cu -I/usr/local/cuda-10.1/include -L/usr/local/cuda-10.1/lib64 -lcufft -o $(BIN)/fft_single
 
+async_mem:
+	nvcc $(SRC)/async_mem.cu -I/usr/local/cuda-10.1/include -L/usr/local/cuda-10.1/lib64 -lcufft -o $(BIN)/async_mem
+
 .PHONY: clean
 clean:
 	rm $(BIN)/*
