@@ -26,10 +26,13 @@ pthread_per_thread:
 	nvcc --default-stream per-thread $(SRC)/pthread_test.cu -o $(BIN)/pthreads_per_thread
 
 fft_single:
-	nvcc $(SRC)/fft_single.cu -I/usr/local/cuda-10.1/include -L/usr/local/cuda-10.1/lib64 -lcufft -o $(BIN)/fft_single
+	nvcc $(SRC)/fft_single.cu -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcufft -o $(BIN)/fft_single
+
+fft_batch:
+	nvcc $(SRC)/fft_batch.cu -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcufft -o $(BIN)/fft_batch
 
 async_mem:
-	nvcc $(SRC)/async_mem.cu -I/usr/local/cuda-10.1/include -L/usr/local/cuda-10.1/lib64 -lcufft -o $(BIN)/async_mem
+	nvcc $(SRC)/async_mem.cu -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcufft -o $(BIN)/async_mem
 
 .PHONY: clean
 clean:
